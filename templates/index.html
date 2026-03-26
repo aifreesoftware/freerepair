@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Image Repair Tool‌ – One Click to Remove Watermarks with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#0ea5e9',
+                        dark: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.2);
+        }
+        .feature {
+            width: 280px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.1);
+        }
+        .feature h3 {
+            color: #0d11f5;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+        .header {
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .scroll-trigger {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .scroll-trigger:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(5px);
+        }
+
+        .scroll-trigger i {
+            font-size: 24px;
+            color: white;
+            animation: float 2s ease-in-out infinite;
+        }
+        .content-section {
+            background: white;
+            padding: 20px 50px;
+            position: relative;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                        <i class="fas fa-brain text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">FreeRepair | Free AI Image Repair Tool‌</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#features" class="text-gray-600 hover:text-primary transition duration-300">Product Features</a>
+                    <a href="#technology" class="text-gray-600 hover:text-primary transition duration-300">Technical Architecture</a>
+                    <a href="#help" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary">Help</a>
+                    <button onclick="window.location.href='https://www.pylike.com/static/freerepair/FreeRepair-V2.1.1.zip'" class="mt-2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-lg">
+                        Download Now
+                      </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#features" class="text-gray-600 hover:text-primary transition duration-300">Product Features</a>
+                <a href="#technology" class="text-gray-600 hover:text-primary transition duration-300">Technical Architecture</a>
+                <a href="#help" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary">Help</a>
+                <button onclick="window.location.href='https://www.pylike.com/static/freerepair/FreeRepair-V2.1.1.zip'" class="mt-2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-lg">
+                    Download Now
+                  </button>
+            </div>
+        </div>
+    </nav>
+    <section class="pt-32 pb-10 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 mb-6">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                        <span class="text-sm">‌The latest version, 2.1.1, has been released</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-4xl font-bold leading-tight">
+                            Free AI Watermark Remover<br>
+                        <p class="mt-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-300">
+                            The Most Advanced AI Image Repair Tool
+                        </p>
+                    </h1>
+                    <p class="mt-6 text-xl text-blue-100 max-w-2xl">
+                        Free AI tool to remove watermarks, logos, text or clutter from images, blurry images can be made clearer or larger. 
+                    </p>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <button class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition duration-300 flex items-center">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Watch Demo
+                        </button>
+                        <button onclick="window.location.href='https://www.pylike.com/static/freerepair/FreeRepair-V2.1.1.zip'" class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition duration-300 flex items-center">
+                            Try It Now
+                        </button>
+                    </div>
+                    <div class="mt-12 flex items-center space-x-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">5000+</div>
+                            <div class="text-blue-200">Active Users</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">99.9%</div>
+                            <div class="text-blue-200">System Availability</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">Python/Django</div>
+                            <div class="text-blue-200">Technical Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-float">
+                    <div class="absolute -top-6 -right-6 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
+                    <div class="absolute -bottom-6 -left-6 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
+                    <div class="relative bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
+                        <img src="https://picsum.photos/600/400?random=1" alt="Data analysis dashboard interface display" class="rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="scroll-trigger" id="scrollTrigger">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+        </div>
+    </section>
+    <div class="content-section">
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">Safe, Efficient, And Intelligent Watermark Removal</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        All processing is done locally, without the need to upload images to the cloud, ensuring your privacy and security while providing faster processing speeds. Utilizing advanced AI-based Removal, simply smear or select target within the image, and it will accurately identify and remove any unwanted content such as watermarks, logos, text or objects.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">AI Smearing, Quickly Removing Watermark Traces</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        The intuitive smearing operation is as simple as using an eraser. It supports adjusting the brush size, precisely selecting the removal area, and seamlessly removing any unwanted objects. It can also automatically remove watermarks from images with a single click, without damaging the original image or compromising its quality. It easily rescues abandoned images, allowing you to share beautiful moments freely, unleash your creativity, and revitalize your photos. After removing objects, AI automatically analyzes the surrounding environment and intelligently fills in the background content, with a natural transition that almost leaves no traces of modification.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">Batch Watermarks Removal, Improve Work Efficiency</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Support batch import, and simultaneously remove watermarks for multiple images in a folder. Massive images can be processed at once, and the exported images remain high-definition and lossless. It's simple and efficient. No need to master complex PS skills to achieve professional results, greatly enhancing work efficiency.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">AI Makes Images Clearer Or Larger</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        AI intelligently restores blurry images, turning blurry images into clear ones or enlarging them with a single click. It supports enlarging the original image by 2 times or 4 times while maintaining clear and undistorted image quality. If you want a larger image, you can click multiple times to enlarge it. It supports processing images of any size.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="features" id="intro">
+        <div class="feature">
+          <h3>AI Intelligent Removal</h3>
+          <p>With advanced AI algorithms, it automatically identifies and removes image watermarks without requiring manual marking, offering simple and convenient one-click operation.</p>
+        </div>
+        <div class="feature">
+          <h3>Precise Manual Removal</h3>
+          <p>Select the unwanted objects with the mouse, and AI will automatically remove them and fill in the background, meeting the needs of fine processing.</p>
+        </div>
+        <div class="feature">
+          <h3>Real-time Preview Comparison</h3>
+          <p>Compare the original and processed images at any time, adjust processing parameters, and ensure the results are satisfactory before downloading.</p>
+        </div>
+      </section>
+      
+      <div class="footer">
+        © 2026 FreeRepair Project — Made with ❤️ using Python
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollTrigger = document.getElementById('scrollTrigger');
+            scrollTrigger.addEventListener('click', function() {
+                this.style.transform = 'translateY(10px) scale(0.95)';
+                this.style.transition = 'all 0.3s ease';
+                setTimeout(() => {
+                    const contentSection = document.querySelector('.content-section');
+                    contentSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    this.style.transform = '';
+                }, 150);
+            });
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                const scrollPosition = window.scrollY;
+                if (scrollPosition > 100) {
+                    header.style.opacity = '0.8';
+                } else {
+                    header.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
