@@ -48,6 +48,6 @@ Unlike web-based editors where you upload an image to a server for processing, F
 
 As shown in the above figure, after downloading, the FreeRepair-V2.1.1.zip compressed file is obtained. After decompressing the compressed file, a folder named "FreeRepair" appears, containing all project files, and this "FreeRepair" folder can be copied and stored in any location on the computer. No installation or configuration is required, and do not modify the components in the "FreeRepair" folder at will. After clicking into the "FreeRepair" folder, you will find a startup file named "FreeRepair.bat". Simply double-click "FreeRepair.bat" to launch the FreeRepair tool, as illustrated in the figure below.
 
-![Homepage Showcase]homepage.jpg
+![Homepage Showcase](homepage.jpg)
 
-![Edit Page Showcase]operationpage.jpg
+![Edit Page Showcase](operationpage.jpg)
